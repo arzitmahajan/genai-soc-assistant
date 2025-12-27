@@ -1,0 +1,90 @@
+.dashboard {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: #fff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.insights-content {
+  display: flex;
+  justify-content: space-between;
+  gap:25px;
+}
+.insight-1st-item{
+  flex:1;
+}
+.insight-2nd-item{
+  flex:1;
+}
+.insight-3rd-item{
+  flex:1.5;
+}
+.severity-bar {
+  display: flex;
+  height: 10px;
+}
+.severity-bar span {
+  flex: 1;
+}
+.high { background: red; }
+.medium { background: orange; }
+.low { background: green; }
+
+.reports-actions {
+  display: flex;
+  justify-content: space-between;
+}
+.quick-actions {
+  width: 200px;
+}
+.btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+.btn:hover { background: #0056b3; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

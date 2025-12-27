@@ -1,0 +1,96 @@
+.page-wrapper {
+  display: flex;
+  justify-content:flex-start;
+  width: 100%;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 32px;
+}
+
+/* Reusable card */
+.card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  margin-bottom: 28px;
+}
+
+/* Upload section spacing */
+.upload-container {
+  width: 100%;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.file-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.file-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 16px;
+}
+
+.upload-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.instructions {
+  margin-top: 22px;
+}
+
+.instructions h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+
+.uploaded-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.uploaded-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #f9fafb;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.file-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.remove-btn {
+  background: #ffe7d6;
+  color: #8a3b00;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}

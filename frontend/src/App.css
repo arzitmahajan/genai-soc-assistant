@@ -1,0 +1,123 @@
+:root {
+  --bg: #f5f6f8;
+  --panel: #fff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg)
+}
+
+
+.app-container {
+  display: flex;
+  min-height: 100vh
+}
+
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #e5e7eb
+}
+
+.sidebar .logo {
+  font-weight: 700;
+  margin-bottom: 18px
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+.sidebar nav ul li {
+  margin: 14px 0
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #111827
+}
+
+.sidebar nav ul li a.active {
+  font-weight: 700
+}
+
+
+/* Main */
+.main-content {
+  flex: 1;
+  padding: 28px
+}
+
+.card {
+  background: var(--panel);
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb
+}
+
+
+/* Upload */
+.upload-container {
+  width: 100%;
+  background: var(--panel);
+  border-radius: 8px;
+}
+
+.file-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600
+}
+
+input[type=file] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6
+}
+
+.upload-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer
+}
+
+.instructions {
+  margin-top: 18px
+}
+
+.error {
+  color: #b91c1c
+}
+
+.success {
+  color: #047857
+}
+
+
+/* small screens */
+@media (max-width: 700px) {
+  .sidebar {
+    display: none
+  }
+
+  .main-content {
+    padding: 12px
+  }
+}

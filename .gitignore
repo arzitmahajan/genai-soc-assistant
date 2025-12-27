@@ -1,0 +1,40 @@
+####################################
+# PYTHON (Backend)
+####################################
+
+# Python cache files (anywhere)
+__pycache__/
+*.pyc
+*.pyo
+
+# Python virtual environment
+backend/venv/
+
+# Backend environment variables
+backend/.env
+
+# FRONTEND (React)
+####################################
+
+# Node dependencies
+frontend/node_modules/
+
+# Frontend build output
+frontend/dist/
+
+# Frontend environment variables
+frontend/.env
+
+####################################
+# GENERAL SAFETY
+####################################
+
+# Any env file anywhere (extra safety)
+.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

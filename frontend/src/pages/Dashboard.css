@@ -1,0 +1,30 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Square outlined refresh button */
+.refresh-icon-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;       /* square look */
+  padding: 6px 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon color */
+.refresh-icon-btn svg {
+  color: #374151;
+}
+
+/* Hover effect (important) */
+.refresh-icon-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}

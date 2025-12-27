@@ -1,0 +1,110 @@
+
+/* HEADER */
+.analysis-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.analysis-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analysis-actions .label {
+  font-size: 13px;
+  color: #555;
+}
+
+.analysis-actions select {
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.generate-btn {
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+/* REPORTS */
+.reports-block {
+  margin-top: 12px;
+}
+
+.reports-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.report-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eef7f1;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.report-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.file-icon {
+  font-size: 22px;
+  color: #3b7f4c;
+}
+
+.report-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.report-time {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* PREVIEW */
+.preview-card {
+  margin-top: 18px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.preview-header {
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-content {
+  padding: 16px 18px;
+}
+
+.analysis-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #111827;
+}
+.icon-alignment{
+    display: flex;
+    gap: 0.3rem;
+}
