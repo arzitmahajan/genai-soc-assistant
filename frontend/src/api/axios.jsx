@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL  || 'http://localhost:4000',
-    withCredentials: true, // send cookies (HttpOnly cookies recommended)
+    baseURL: import.meta.env.VITE_API_URL,
+    withCredentials: true,
     headers: {
-        'Accept': 'application/json',
-    }
+        Accept: 'application/json',
+    },
 });
+
 
 
 // Basic interceptor template (refresh token logic should be implemented server-side or via refresh endpoint)

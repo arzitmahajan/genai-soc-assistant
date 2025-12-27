@@ -3,7 +3,7 @@ const saveReport = async(filename,user_id,analysis)=>{
   const cleanAnalysis = JSON.parse(JSON.stringify(analysis));
 
     const resp  = await api.post(
-        `/logs/save_report?user_id=${user_id}&filename=${filename}`,
+        `/reports/save_report?user_id=${user_id}&filename=${filename}`,
        {analysis:cleanAnalysis},
         {
             headers:{'Content-Type':'application/json'},
@@ -25,7 +25,7 @@ const deleteReport = async (user_id, reportname) => {
 };
 
 const getReportContent = async(user_id,filename)=>{
-  const resp = await api.get(`/logs/get_report_content?user_id=${user_id}&filename=${filename}`);
+  const resp = await api.get(`/reports/get_report_content?user_id=${user_id}&filename=${filename}`);
   return resp.data;
 }
 

@@ -8,7 +8,7 @@ const uploadFile = async (file,user_id) => {
 
 
     // Example: use server upload endpoint that validates file type/size and scans it.
-    const resp = await api.post('/logs/upload', form, {
+    const resp = await api.post('/files/upload', form, {
         headers: { 'Content-Type': 'multipart/form-data' },
         onUploadProgress: (e) => {
             // We don't update UI here; redux thunk can use a progress callback by passing config.
