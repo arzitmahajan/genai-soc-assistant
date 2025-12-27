@@ -102,7 +102,7 @@ import traceback
 router = APIRouter()
 mongo_service = MongoService()  # reuse one instance
 
-@router.post('/analyze')
+@router.post('/')
 async def analyze_logs(
     filename: str = Query(...),
     user_id: str = Query(...),

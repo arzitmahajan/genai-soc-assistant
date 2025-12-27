@@ -20,13 +20,14 @@ app = FastAPI(title="GenAI SOC Assistant")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",        # local dev
-        "https://your-vercel-app.vercel.app"  # production frontend
+        "http://localhost:5173",                     # local dev
+        "https://genai-soc-assistant.vercel.app"     # REAL Vercel URL
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 app.include_router(upload_files.router, prefix="/files", tags=["Files"])
