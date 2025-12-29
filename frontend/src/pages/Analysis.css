@@ -6,6 +6,19 @@
   align-items: center;
   margin-bottom: 18px;
 }
+.analysis-save-destination {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.analysis-save-destination label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+}
+
 
 .analysis-actions {
   display: flex;
@@ -107,4 +120,20 @@
 .icon-alignment{
     display: flex;
     gap: 0.3rem;
+}
+.badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.badge.local {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.badge.cloud {
+  background: #dcfce7;
+  color: #166534;
 }
