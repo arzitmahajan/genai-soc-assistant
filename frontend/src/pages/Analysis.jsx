@@ -24,31 +24,61 @@ export default function Analysis() {
   const savedReportFiles = userUploadedReports?.reports || [];
   const tempReportFiles = Object.keys(reports || {});
 
+  const localFiles = useSelector((state) => state.upload.files); // session-only
+  const cloudFiles = userUploadedFiles; // persisted
+  const localFileNames = new Set(localFiles.map(f => f.name));
+
+  const localReports = Object.keys(reports || {}).filter(
+    (filename) => localFileNames.has(filename)
+  );
+  const cloudReports = savedReportFiles;
+
+  const allFiles = [
+    ...localFiles.map((f) => ({
+      name: f.name,
+      source: "local",
+    })),
+    ...cloudFiles.map((f) => ({
+      name: f.filename,
+      source: "cloud",
+    })),
+  ];
 
 
   const handleGenerate = () => {
     if (!selectedFile) return;
-    // If already analyzed, don’t re-run
-    if (!reports[selectedFile]) {
-      dispatch(
-        analyzeFile({
-          filename: selectedFile,
-          user_id: user_id,
-          saveReport: false,
-        })
-      )
-        .unwrap()
-        .then((res) => {
+
+    const [source, filename] = selectedFile.split(":");
+
+    // Avoid re-analysis
+    if (reports[filename]) return;
+
+    dispatch(
+      analyzeFile({
+        filename,
+        user_id,
+        saveReport: false, // 🚫 ALWAYS false from frontend
+      })
+    )
+      .unwrap()
+      .then((res) => {
+        if (!res?.analysis) return;
+
+        // 🔹 LOCAL FILE → LOCAL REPORT
+        if (source === "local") {
+          // store only in analyze slice (session)
+          // already done by analyzeFile
+          return;
+        }
+
+        // 🔹 CLOUD FILE → ASK TO SAVE
+        if (source === "cloud") {
           const confirmSave = window.confirm("Save report to cloud?");
           if (confirmSave) {
-            if (!res?.analysis) {
-              console.error("No analyses found in response:", res);
-              return;
-            }
             dispatch(
               saveReport({
-                filename: selectedFile,
-                user_id: user_id,
+                filename,
+                user_id,
                 analysis: res.analysis,
               })
             )
@@ -57,11 +87,10 @@ export default function Analysis() {
                 dispatch(fetchUserReports(user_id));
               });
           }
-        });
-      // console.log("Saving report with:", { selectedFile, user_id, analysis });
-
-    }
+        }
+      });
   };
+
 
   const handleViewReport = async (filename) => {
     try {
@@ -72,6 +101,12 @@ export default function Analysis() {
       console.error("Error loading report:", err);
     }
 
+  };
+  const handleViewLocalReport = (filename) => {
+    const localAnalysis = reports[filename];
+    if (!localAnalysis) return;
+
+    setReportContent(localAnalysis);
   };
 
   // console.log("HI");
@@ -125,13 +160,18 @@ export default function Analysis() {
                 value={selectedFile}
                 onChange={(e) => setSelectedFile(e.target.value)}
               >
-                <option value="">Select a report</option>
-                {userUploadedFiles.map((f) => (
-                  <option key={f.filename} value={f.filename}>
-                    {f.filename}
+                <option value="">Select a file</option>
+
+                {allFiles.map((f) => (
+                  <option
+                    key={`${f.source}-${f.name}`}
+                    value={`${f.source}:${f.name}`}
+                  >
+                    {f.name} ({f.source})
                   </option>
                 ))}
               </select>
+
 
               <button
                 className="generate-btn"
@@ -148,22 +188,42 @@ export default function Analysis() {
             <h3>Reports</h3>
 
             <ul className="reports-list">
-              {savedReportFiles.map((r) => (
-                <li className="report-row" key={r.filename}>
+              {/* LOCAL REPORTS */}
+              {localReports.map((filename) => (
+                <li
+                  className="report-row local clickable"
+                  key={`local-${filename}`}
+                  onClick={() => handleViewLocalReport(filename)}
+                >
+                  <div className="report-left">
+                    <FiFileText size={30} color="#9ca3af" />
+                    <div className="report-meta">
+                      <div className="report-name">{filename}</div>
+                      <span className="badge local">Session</span>
+                    </div>
+                  </div>
+
+                  {/* spacer to align with Remove button */}
+                  <div className="report-right-placeholder" />
+                </li>
+              ))}
+
+
+              {/* CLOUD REPORTS */}
+              {cloudReports.map((r) => (
+                <li className="report-row" key={`cloud-${r.filename}`}>
                   <div
                     className="report-left"
                     onClick={() => handleViewReport(r.filename)}
                   >
-                    {/* <span className="file-icon">📄</span> */}
-                    <span className="icon-alignment">
-                      <FiFileText size={30} color="#3b7f4c" />
-                      <div className="report-meta">
-                        <div className="report-name">{r.filename}</div>
-                        <div className="report-time">
-                          Generated {r.last_modified}
-                        </div>
+                    <FiFileText size={30} color="#3b7f4c" />
+                    <div className="report-meta">
+                      <div className="report-name">{r.filename}</div>
+                      <div className="report-time">
+                        Generated {r.last_modified}
                       </div>
-                    </span>
+                      <span className="badge cloud">Saved</span>
+                    </div>
                   </div>
 
                   <button
@@ -172,15 +232,13 @@ export default function Analysis() {
                       dispatch(deleteUserReport({ user_id, reportname: r.filename }))
                     }
                   >
-                    <span className="icon-alignment">
-                      <FiTrash2 size={16} />
-                      Remove
-                    </span>
-
+                    <FiTrash2 size={16} />
+                    Remove
                   </button>
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* PREVIEW */}

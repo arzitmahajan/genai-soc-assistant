@@ -1,78 +1,97 @@
-.upload-container {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  max-width: 900px;
-}
-
-.section-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.file-label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #111827;
-}
-
-.file-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
-
 .upload-destination {
+  margin: 16px 0;
   display: flex;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
 }
 
-.radio-option {
+.destination-label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.upload-destination label {
   display: flex;
+  gap: 6px;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
   cursor: pointer;
 }
 
-.radio-option input {
-  accent-color: #2563eb; /* blue */
-}
+@media (max-width: 700px) {
+  /* Let parent card control layout */
+  .upload-container {
+    padding: 8px 0;
+    max-width: 100%;
+  }
 
-.upload-btn {
-  margin-top: 10px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-}
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
 
-.upload-btn:hover {
-  background: #1e40af;
-}
+  .form-group {
+    margin-bottom: 14px;
+  }
 
-.instructions {
-  margin-top: 24px;
-}
+  .file-label {
+    font-size: 14px;
+  }
 
-.instructions h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
+  .file-input {
+    padding: 8px;
+    font-size: 14px;
+  }
 
-.instructions p {
-  font-size: 14px;
-  color: #4b5563;
+  /* Upload destination – clean stacked cards */
+  .upload-destination {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .radio-option input {
+    transform: scale(1.1);
+    accent-color: #2563eb;
+  }
+
+  /* Selected state (THIS is the correct one) */
+  .radio-option:has(input:checked) {
+    border-color: #2563eb;
+    background: #eff6ff;
+    font-weight: 600;
+  }
+
+  .upload-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .instructions {
+    margin-top: 16px;
+  }
+
+  .instructions h3 {
+    font-size: 14px;
+  }
+
+  .instructions p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
 }
+    
