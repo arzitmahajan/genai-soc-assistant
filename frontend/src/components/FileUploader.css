@@ -1,0 +1,97 @@
+.upload-destination {
+  margin: 16px 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.destination-label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.upload-destination label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  /* Let parent card control layout */
+  .upload-container {
+    padding: 8px 0;
+    max-width: 100%;
+  }
+
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .file-label {
+    font-size: 14px;
+  }
+
+  .file-input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Upload destination – clean stacked cards */
+  .upload-destination {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .radio-option input {
+    transform: scale(1.1);
+    accent-color: #2563eb;
+  }
+
+  /* Selected state (THIS is the correct one) */
+  .radio-option:has(input:checked) {
+    border-color: #2563eb;
+    background: #eff6ff;
+    font-weight: 600;
+  }
+
+  .upload-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .instructions {
+    margin-top: 16px;
+  }
+
+  .instructions h3 {
+    font-size: 14px;
+  }
+
+  .instructions p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+    

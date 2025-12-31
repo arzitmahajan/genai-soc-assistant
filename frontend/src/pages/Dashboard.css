@@ -1,15 +1,26 @@
+.dashboard {
+  width: 100%;
+}
+
+/* Header */
 .dashboard-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  margin-top: 4%;
 }
 
-/* Square outlined refresh button */
+.dashboard-header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Refresh button */
 .refresh-icon-btn {
   background: #ffffff;
   border: 1px solid #d1d5db;
-  border-radius: 6px;       /* square look */
+  border-radius: 6px;
   padding: 6px 8px;
   cursor: pointer;
 
@@ -18,13 +29,159 @@
   justify-content: center;
 }
 
-/* Icon color */
 .refresh-icon-btn svg {
   color: #374151;
 }
 
-/* Hover effect (important) */
 .refresh-icon-btn:hover {
   background: #f3f4f6;
   border-color: #9ca3af;
+}
+
+/* =========================
+   SUMMARY / INSIGHTS
+   ========================= */
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* Insights layout */
+.insights-content {
+  display: flex;
+  gap: 24px;
+}
+
+.insight-1st-item {
+  flex: 1;
+}
+
+.insight-2nd-item {
+  flex: 1;
+}
+
+.insight-3rd-item {
+  flex: 1.5;
+}
+
+/* Severity bar */
+.severity-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.severity-bar span {
+  flex: 1;
+}
+
+.high {
+  background: #dc2626;
+}
+
+.medium {
+  background: #f59e0b;
+}
+
+.low {
+  background: #16a34a;
+}
+
+/* =========================
+   REPORT ACTIONS
+   ========================= */
+
+.reports-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.quick-actions {
+  width: 200px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #1e40af;
+}
+
+/* =========================
+   TABLES
+   ========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  font-size: 13px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .refresh-icon-btn {
+    padding: 6px;
+  }
+
+  .summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .insights-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .reports-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .quick-actions {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    font-size: 12px;
+  }
 }

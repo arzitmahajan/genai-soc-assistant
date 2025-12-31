@@ -20,7 +20,7 @@ const Dashboard = () => {
     dispatch(resetDashboardData());
   };
   return (
-    <div className="dashboard">
+    <>
       <div className="dashboard-header">
         <h1>SOC Assistant</h1>
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
       </div> */}
       <DetailedReports />
       {/* <ExportOptions /> */}
-    </div>
+    </>
   );
 };
 
