@@ -134,17 +134,33 @@
 /* =========================
    TABLES
    ========================= */
-
 table {
-  width: 100%;
-  border-collapse: collapse;
+  min-width: 800px;
+}
+td {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+td:hover {
+  white-space: normal;
 }
 
-table th,
-table td {
-  border: 1px solid #e5e7eb;
-  padding: 8px;
-  font-size: 13px;
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: cleaner scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
 }
 
 /* =========================
