@@ -17,7 +17,7 @@ const LoginPage = ({ onSwitchMode }) => {
     dispatch(login(data))
       .unwrap()
       .then(() => {
-        setSuccessMessage("Logged in successfully ✅");
+        setSuccessMessage("Logged in successfully");
         navigate("/");
       })
       .catch(() => {});
@@ -26,7 +26,7 @@ const LoginPage = ({ onSwitchMode }) => {
   const handleGuest = () => {
     setSuccessMessage("");
     dispatch(setGuestUser());
-    setSuccessMessage("Continuing as guest ✅");
+    setSuccessMessage("Continuing as guest");
     navigate("/");
   };
 

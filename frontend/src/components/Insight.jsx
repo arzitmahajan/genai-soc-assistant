@@ -9,7 +9,6 @@ const Insight = () => {
   const low = incidentSummary?.low || 0;
   const medium = incidentSummary?.medium || 0;
   const total = high + low + medium;
-  console.log("high = ",high)
   if (!incidentSummary) return <p>Loading...</p>;
 
   return (

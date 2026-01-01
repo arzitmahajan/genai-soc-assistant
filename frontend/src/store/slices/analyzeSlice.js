@@ -8,8 +8,6 @@ export const analyzeFile = createAsyncThunk(
   async ({filename, user_id,saveReport},{ rejectWithValue }) => {
     try {
       const resp = await analyzeService.analyzeFile(filename,user_id,saveReport);
-      console.log("Checking the work");
-      console.log(resp);
       return { filename, analysis: resp.analysis };
     }
     catch (err) {

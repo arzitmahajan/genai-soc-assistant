@@ -20,20 +20,18 @@ const AuthCard = ({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (isLogin) {
-            onLogin
-                ? onLogin({ email, password })
-                : console.log("Login:", { email, password });
-        } else {
-            onSignUp
-                ? onSignUp({ name, email, password })
-                : console.log("SignUp:", { name, email, password });
+        if (isLogin && onLogin) {
+            onLogin({ email, password });
         }
+
+        if (!isLogin && onSignUp) {
+            onSignUp({ name, email, password });
+        }
+
     };
 
     const handleGuest = () => {
         if (onGuestLogin) onGuestLogin();
-        else console.log("Login as guest");
     };
 
     return (

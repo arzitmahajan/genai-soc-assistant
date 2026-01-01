@@ -19,7 +19,6 @@ export const fetchUserReports = createAsyncThunk(
   async (user_id, { rejectWithValue }) => {
     try {
       const reports = await reportService.fetchUserReports(user_id);
-      // console.log("OK ",reports);
       return reports;
     } catch (err) {
       return rejectWithValue(err.response?.data?.detail || err.message);
