@@ -11,7 +11,6 @@ const UploadedSummary = () => {
 
   if("status"==="loading") return<p>Loading...</p>
   if("status"==="failed") return<p>Error fetching stats.</p>
-  console.log("date = ",lastUpload);
   return (
     <div className="uploaded-summary card">
       <h3>Uploaded Reports Summary</h3>

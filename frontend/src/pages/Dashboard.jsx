@@ -12,8 +12,6 @@ import './Dashboard.css'
 const Dashboard = () => {
   const user = useSelector((state) => state.auth.user);
 
-  console.log("USER ID:", user.id);  // 👈 console log here
-
   const dispatch = useDispatch();
 
   const handleReset = () => {

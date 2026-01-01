@@ -1,13 +1,13 @@
 // src/store/slices/authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../api/axios";
+import { GetOrCreateGuestUser } from "../../utils/GetOrCreateGuestUser";
 
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     try {
       const resp = await api.post("/auth/login", credentials, { withCredentials: true });
-      console.log(resp.data);
       return resp.data.user; // { email }
     } catch (err) {
       return rejectWithValue(err.response?.data || { message: err.message });
@@ -52,11 +52,10 @@ const authSlice = createSlice({
       state.user = null;
     },
     setGuestUser(state) {
-      state.user = {
-        id: "guest_0001",
-        email: "guest@soc-assistant"
-      };
-    },
+      state.user = GetOrCreateGuestUser();
+      state.status = "guest";
+    }
+
   },
   extraReducers: (builder) => {
     builder

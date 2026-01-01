@@ -96,7 +96,6 @@ export default function Analysis() {
     try {
       const data = await reportService.getReportContent(user_id, filename);
       setReportContent(data.content);
-      console.log(data);
     } catch (err) {
       console.error("Error loading report:", err);
     }

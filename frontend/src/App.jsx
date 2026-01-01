@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import UploadFile from "./pages/UploadFile";
@@ -8,13 +8,20 @@ import LoginPage from "./components/AuthWrapper/LoginPage";
 import SignUpPage from "./components/AuthWrapper/SignUpPage";
 import PrivateRoute from "./utils/PrivateRoute";
 import { useDispatch } from "react-redux";
-import { fetchMe } from "./store/slices/authSlice";
+import { fetchMe, setGuestUser } from "./store/slices/authSlice";
 export default function App() {
   const dispatch = useDispatch();
-
+  const location = useLocation();
   useEffect(() => {
-    dispatch(fetchMe());
+    if (location.pathname.startsWith("/auth")) return;
+    
+    dispatch(fetchMe())
+      .unwrap()
+      .catch(() => {
+        dispatch(setGuestUser());
+      });
   }, [dispatch]);
+
 
   return (
     <Routes>
